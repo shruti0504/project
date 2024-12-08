@@ -1,20 +1,15 @@
-# Use official PHP image with Apache
+# Use the official PHP image with Apache
 FROM php:8.0-apache
 
-# Install Composer (dependency manager for PHP)
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Install any required PHP extensions (if needed)
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Set the working directory to /var/www/html
+# Copy the application files into the container
 WORKDIR /var/www/html
-
-# Copy your PHP project files into the container
 COPY . /var/www/html/
-
-# Install PHP dependencies using Composer
-RUN composer install
 
 # Expose port 80 to the outside world (default for web servers)
 EXPOSE 80
 
-# Start Apache web server
+# Start Apache in the foreground
 CMD ["apache2-foreground"]
