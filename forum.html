@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Myths vs. Facts</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7b9d1;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            padding-top: 80px;
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+        }
+
+        .container {
+            width: 48%;
+            background-color: #f4d2df;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+          
+        }
+
+        .split-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            background-color:#f7b9d1;
+        }
+
+        .split-container .upper,
+        .split-container .lower {
+            background-color:#f4d2df;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .split-container .lower {
+            margin-bottom: 0;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #e91e63;
+            margin: 0;
+        }
+
+        header h2 {
+            color: #333;
+            font-size: 5rem;
+            margin: 10px 0 20px;
+            position: relative;
+        }
+
+        header h2 span {
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .myth-fact-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .myth, .fact, .vs {
+            width: 30%;
+            text-align: left;
+        }
+
+        .vs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .vs img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid #e91e63;
+        }
+
+        .myth p, .fact p {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: lighter;
+        }
+
+        .myth {
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .fact {
+            color: #333;
+            font-weight: normal;
+        }
+
+
+
+        /* Add these styles to your existing CSS */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    background-color:#f4e0e7;
+    border: 1px solid #920d61;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #d81b60;
+}
+
+
+
+/* Add these styles to your existing CSS */
+.post {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color:#f5e6eb;
+}
+
+.post-content {
+    flex: 3;
+    text-align: left;
+    margin-right: 20px; /* Adds space between content and meta info */
+}
+
+.post-content h2 {
+    margin-top: 0;
+    text-align: left;
+    color: #e91e63;
+}
+
+.post-meta {
+    flex: 1;
+    text-align: right; /* Aligns meta info to the right */
+}
+
+.post small {
+    display: block;
+    color: #666;
+    margin-top: 10px;
+}
+.header {
+            width: 100%;
+            background-color: #f7b9d1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            color: white;
+            text-align: center;
+            border-bottom: #ccc;
+            z-index: 1000; /* Ensures navbar stays on top */
+        }
+        .headerbar
+{
+    display: none;
+}
+.logo img{
+    padding-top: 30px;
+    width: 70px;
+    
+}
+.nav ul .home-icon {
+    margin-left: auto; /* Push the home icon to the right */
+}
+/*house icon la rightmost ghetle*/
+.house {
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 40px;
+}
+
+.house-icon {
+    font-size: 24px;
+}
+/*navbar section end*/
+
+
+    </style>
+ <div class="header">
+    <div class="logo">
+        <img src="images/face1.png" alt="This is logo image">
+    </div>
+    <div class="house">
+        <a href="home.html" class="house-icon">
+            <li><i class="fa-solid fa-house"></i></li>
+        </a>
+    </div>
+ </div>
+    <div class="main-container">
+        <div class="container">
+            <header>
+                <h2>Myths <span>vs.</span> Facts</h2>
+            </header>
+            <div class="myth-fact-section">
+                <div class="myth">
+                    <p>Women should avoid exercise during their period.</p>
+                </div>
+                <div class="vs">
+                    <img src="images/y2.png" alt="Lump Myth">
+                </div>
+                <div class="fact">
+                    <p>Exercise can reduce menstrual symptoms and is beneficial during periods.</p>
+                </div>
+            </div>
+            <div class="myth-fact-section">
+                <div class="myth">
+                    <p>Period blood is dirty.</p>
+                </div>
+                <div class="vs">
+                    <img src="images/imp.png" alt="Family History Myth">
+                </div>
+                <div class="fact">
+                    <p>Period blood is not dirty;It includes a mix of blood, tissue from the lining of the uterus, and vaginal secretions.</p>
+                </div>
+            </div>
+            <div class="myth-fact-section">
+                <div class="myth">
+                    <p>Using tampons can cause loss of virginity.</p>
+                </div>
+                <div class="vs">
+                    <img src="images/corn.png" alt="Age Myth">
+                </div>
+                <div class="fact">
+                    <p> Virginity is a social and cultural concept.Using tampons does not affect virginity. Tampons are a safe menstrual product choice.</p>
+                </div>
+            </div>
+            <div class="myth-fact-section">
+                <div class="myth">
+                    <p>You can't get pregnant during your period.</p>
+                </div>
+                <div class="vs">
+                    <img src="images/preg.png" alt="Underwire Bra Myth">
+                </div>
+                <div class="fact">
+                    <p>It is possible to get pregnant during your period, though the chances are lower.</p>
+                </div>
+            </div>
+            <div class="myth-fact-section">
+                <div class="myth">
+                    <p>Period pain is always normal</p>
+                </div>
+                <div class="vs">
+                    <img src="images/epain.png" alt="Men Myth">
+                </div>
+                <div class="fact">
+                    <p>Severe period pain is not normal can indicate conditions like endometriosis or fibroids.It should be discussed with a healthcare provider.</p>
+                </div>
+            </div>
+            <div class="myth-fact-section">
+                <div class="myth">
+                    <p>Irregular periods are always a sign of a health problem</p>
+                </div>
+                <div class="vs">
+                    <img src="images/irre.png" alt="Antiperspirant Myth">
+                </div>
+                <div class="fact">
+                    <p>Irregular periods can be caused by various factors such as stress, diet, exercise, and hormonal changes. However, persistent irregularity should be discussed</p>
+                </div>
+            </div>
+        </div>
+        <div class="container split-container">
+            <div class="upper">
+                <header>
+                    <h1>Ask, Share, Support</h1>
+                </header>
+                <form action="submit_post.php" method="POST">
+                    <div class="form-group">
+                        <label for="postTitle">Title:</label>
+                        <input type="text" id="postTitle" name="postTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postContent">Content:</label>
+                        <textarea id="postContent" name="postContent" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Submit Post</button>
+                </form>
+            </div>
+            <div class="lower">
+                <header>
+                    <h1>Community Highlights</h1>
+                </header>
+                <div id="postsContainer"></div>
+            </div>
+                 
+        </div>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Function to fetch and display posts
+    function loadPosts() {
+        fetch('fetch_posts.php')
+            .then(response => response.json())
+            .then(data => {
+                const postsContainer = document.getElementById('postsContainer');
+                postsContainer.innerHTML = ''; // Clear the container
+
+                data.forEach(post => {
+                    const postDiv = document.createElement('div');
+                    postDiv.classList.add('post');
+
+                    postDiv.innerHTML = `
+                        <div class="post-content">
+                            <h2>${post.title}</h2>
+                            <p>${post.content}</p>
+                            <small>${new Date(post.created_at).toLocaleString()}</small>
+                        </div>
+                        <div class="post-meta">
+                            <p><strong>By:</strong> ${post.username}</p>
+                        </div>
+                    `;
+
+                    postsContainer.appendChild(postDiv);
+                });
+            })
+            .catch(error => console.error('Error fetching posts:', error));
+    }
+
+    loadPosts(); // Load posts on page load
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <style>
+        /* styles_rem.css */
+*{
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: brown; /*clr of icon*/
+}
+
+.logo img {
+    padding-top: 30px;
+    width: 70px;
+}
+.header {
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgb(247, 216, 243);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 7vw;
+    justify-content: space-between;
+}
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav ul li {
+    list-style: none;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: brown; /*clr of icon*/
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.house {
+    padding-left: 10px;
+}
+
+.house-icon {
+    font-size: 24px;
+    color: brown; /*clr of icon*/
+}
+
+/* Navbar section end */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(247, 216, 243);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 80px;
+}
+
+.container {
+    background-color: rgb(241, 193, 223);
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #900574; /* Add border color to the form container */
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    margin: auto;
+            text-align: center;
+            margin-top: 20px;
+            
+         
+}
+
+.symptom-grid {
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding-top: 8px;
+    
+}
+
+.symptom-grid label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.symptom-grid img {
+    width: 200px; /* Adjust image width */
+    height: 200px; /* Adjust image height */
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.symptom-grid input[type="checkbox"] {
+    display: none;
+}
+
+.symptom-grid input[type="checkbox"] + img {
+    cursor: pointer;
+}
+
+.symptom-grid input[type="checkbox"]:checked + img {
+    border-color: #720b33;
+}
+
+button {
+    background-color: #b33a66;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #b33a66;
+}
+
+#advice {
+    margin-top: 20px;
+    color: #5d034b;
+    font-size: 1.2rem; /* Increase font size */
+    line-height: 1.5; /* Increase line height for readability */
+    text-align: left; /* Align text to the left */
+}
+
+.condition h3 {
+    text-align: center; /* Align text to the left */
+    font-size: 1.7rem; /* Increase heading size */
+    margin-bottom: 10px; /* Add space below heading */
+    color: rgb(112, 23, 66);
+}
+
+.condition ul {
+    list-style-type: disc; /* Use disc bullets */
+    margin-left: 20px; /* Indent the list */
+}
+.condition li {
+    margin-bottom: 5px; /* Add space below each list item */
+}
+
+    </style>
+    <div class="header">
+        <div class="logo">
+            <img src="images/logo.png" alt="This is logo image">
+        </div>
+        <div class="house">
+            <a href="home.html" class="house-icon">
+                <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
+     </div>
+    <div class="container">
+        <form id="symptom-form" action="remedies.php" method="POST">
+            <h1>🌿 Relief & Remedies 🌿</h1>
+            <div class="symptom-grid">
+                <label>
+                    <input type="checkbox" name="symptoms[]" value="headache">
+                    <img src="images/head.png" alt="Headache">
+                    <span>Headache</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="symptoms[]" value="cramps">
+                    <img src="images/cramp.png" alt="Cramps">
+                    <span>Cramps</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="symptoms[]" value="bloating">
+                    <img src="images/sw.png" alt="Bloating">
+                    <span>Bloating</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="symptoms[]" value="fatigue">
+                    <img src="images/fatigue.png" alt="Fatigue">
+                    <span>Fatigue</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="symptoms[]" value="mood-swings">
+                    <img src="images/angry.png" alt="Mood Swings">
+                    <span>Mood Swings</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="symptoms[]" value="acne">
+                    <img src="images/acne.png" alt="Acne">
+                    <span>Acne</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="symptoms[]" value="digestive-issue">
+                    <img src="images/di.png" alt="digestive issue">
+                    <span>digestive issue</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="symptoms[]" value="back-pain">
+                    <img src="images/pain.png" alt="Lower Back-pain">
+                    <span>Lower Back-pain</span>
+                </label>
+                <!-- Add more symptom images here -->
+            </div>
+            <button type="submit">Check Symptoms</button>
+        </form>
+        <div id="advice"></div>
+    </div>
+   <script>
+document.getElementById('symptom-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+    
+    const formData = new FormData(this);
+
+    fetch('remedies.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        const adviceDiv = document.getElementById('advice');
+        adviceDiv.innerHTML = '';
+
+        if (data.error) {
+            adviceDiv.textContent = data.error;
+        } else if (data.length === 0) {
+            adviceDiv.textContent = 'No conditions found based on selected symptoms.';
+        } else {
+            data.forEach(condition => {
+                const conditionDiv = document.createElement('div');
+                conditionDiv.classList.add('condition');
+                conditionDiv.innerHTML = `<h3>${condition.name}</h3>`;
+
+                const descriptionList = document.createElement('ul');
+                const sentences = condition.description.split('.');
+
+                sentences.forEach(sentence => {
+                    if (sentence.trim()) {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = sentence.trim() + '.';
+                        descriptionList.appendChild(listItem);
+                    }
+                });
+
+                conditionDiv.appendChild(descriptionList);
+                adviceDiv.appendChild(conditionDiv);
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        const adviceDiv = document.getElementById('advice');
+        adviceDiv.textContent = 'An error occurred. Please try again later.';
+    });
+});
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcrypt/5.0.1/bcrypt.min.js"></script>
+
+</head>
+<body>
+    <style>
+        body{
+            background-image: url('images/leaf.gif');
+            /*background-color:#F8EFE9;*/
+            background-color:pink;
+        }
+        .wrapper
+        {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            
+        }
+        .reg-box
+        {
+            position: relative;
+            width: 450px;
+            backdrop-filter: blur(25px);
+            border: 2px solid plum;
+            border-radius: 15px;
+            padding: 7.5em 2.5em 4em 2.5em ;
+            color:brown;
+            box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.301);
+        }
+        .header{
+            position: absolute;
+            top:0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color:palevioletred;
+            width: 180px;
+            height: 70px;
+            border-radius: 0 0 20px 20px;
+        }
+        .header span{
+            font-size: 30px;
+            color: brown;
+        }
+        .header::before{ /*curvy design*/
+            content: "";
+            position: absolute;
+            top:0;
+            left: -30px;
+            width: 30px;
+            height: 30px;
+            border-top-right-radius:50%;
+            background: transparent;
+            box-shadow: 15px 0 0 0 palevioletred;
+        }
+        .header::after{ /*curvy design*/
+            content: "";
+            position: absolute;
+            top:0;
+            right: -30px;
+            width: 30px;
+            height: 30px;
+            border-top-left-radius:50%;
+            background: transparent;
+            box-shadow: -15px 0 0 0 palevioletred ;
+        }
+        .input-box
+        {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin:20px 0;
+        }
+        .input-field
+        {
+            width: 85%;
+            height: 55px;
+            font-size: 16px;
+            background: transparent;
+            color:brown;
+            padding-inline: 20px 50px;
+            border:2px solid palevioletred;
+            border-radius: 30px;
+            outline: none;
+        }
+        #user
+        {
+            margin-bottom: 10px;
+        }
+        .label
+        {
+            position: absolute;
+            top: 15px;
+            left:20px;
+            transition: .2s;
+        }
+        /*je up sliding hotay na toh effect*/
+        .input-field:focus ~ .label,
+        .input-field:valid ~ .label{
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        font-size: 16px;
+        background-color: pink;
+         border-radius:30px;
+         color:brown;
+         padding: 0 10px;
+        }
+        .icon{
+            position: absolute;
+            top:18px;
+            right: 25px;
+            font-size: 20px;
+        }
+        .remember-forgot
+        {
+            display:flex;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+        .input-submit
+        {
+           width: 100%;
+           height: 50px;
+           color: brown;
+            background:palevioletred;
+            font-size: 26px;
+            font-weight: 500;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .register
+        {
+            text-align:center
+        }
+        .register a{
+            font-weight: 500;
+        }
+    </style>
+    <form action="register.php" method="POST" class="form-container">
+        <div class="wrapper">
+            <div class="reg-box">
+                <div class="header">
+                    <span>REGISTER</span>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="user" class="input-field" name="username" required>
+                    <label for="user" class="label">Username</label>
+                    <i class="fa-solid fa-user icon"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="pass" class="input-field" name="password" required>
+                    <label for="pass" class="label">Password</label>
+                    <i class="fa-solid fa-lock icon"></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" id="email" class="input-field" name="email" required>
+                    <label for="email" class="label">Email</label>
+                    <i class="fa-solid fa-envelope icon"></i>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="input-submit" value="Register">
+                </div>
+                <div class="register">
+                    <span>Already have an account? <a href="login.html">Login Here</a></span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+    
+            var passwordField = document.getElementById('pass');
+            var password = passwordField.value;
+    
+            // Hash the password using bcrypt.js
+            bcrypt.hash(password, 10, function(err, hashedPassword) {
+                if (err) {
+                    console.error("Error hashing password:", err);
+                } else {
+                    // Replace the plain text password with the hashed password
+                    passwordField.value = hashedPassword;
+    
+                    // Submit the form with the hashed password
+                    event.target.submit();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

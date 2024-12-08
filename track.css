@@ -1,0 +1,336 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    *{
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color:brown;/*clr of icon*/
+    
+    }
+    
+    .logo img{
+    padding-top: 30px;
+    width: 70px;
+    }
+    .header {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding: 0 7vw;
+    background-color: rgb(247, 216, 243);
+    justify-content: space-between;
+    position: relative; /* Make the header a containing block */
+    }
+    
+    .nav ul .home-icon {
+    margin-left: auto; /* Push the home icon to the right */
+    }
+    /*house icon la rightmost ghetle*/
+    .house {
+    margin-left: auto;
+    padding-left: 10px;
+    }
+    
+    .house-icon {
+    font-size: 24px;
+    }
+    /*navbar section end*/
+    
+    * {
+    color: brown;
+    background-color: rgb(247, 216, 244);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+    
+    .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 60px;
+    flex-wrap: wrap; /* Allow wrapping of elements in smaller screens */
+    gap: 20px; /* Add space between the form and the image */
+    }
+    
+    .form-container {
+    flex: 1; /* Adjusted flex value to decrease the size */
+    margin-left: 100px;
+    border: 2px solid #900574; /* Add border color to the form container */
+    padding: 20px; /* Add padding to the form container */
+    border-radius: 10px; /* Add border-radius to the form container */
+    }
+    /*
+    .user {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 60px;
+    }
+    
+    .pic {
+    margin-right: 50px;
+    }
+    */
+    .display {
+    margin-left: 200px;
+    padding-top: 50px;
+    padding-bottom: 7rem;
+    }
+    .cal-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Make the image container responsive */
+    max-width: 700px; /* Set a max width for better responsiveness */
+    margin-right: 0px;
+    padding: 20px;
+    box-sizing: border-box;
+    }
+    
+    .about-photo {
+    width: 100%; /* Make the image responsive */
+    height: 600px; /* Maintain aspect ratio */
+    max-height: 100%; /* Prevent overflow in height */
+    object-fit: contain; /* Ensure the image fits within its container */
+    }
+    
+    h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    }
+    
+    form {
+    width: 100%;
+    }
+    
+    label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    }
+    
+    #results {
+    display: flex;
+    justify-content: space-between; /* Adjust spacing between the cards */
+    gap: 20px; /* Add some gap between the cards */
+    margin-top: 20px; /* Add some margin to the top */
+    }
+    
+    .card {
+    flex: 1; /* Ensure cards take up equal space */
+    border: 2px solid #900574; /* Border color for the cards */
+    padding: 10px 10px; /* Padding for the cards */
+    border-radius: 10px; /* Border-radius for the cards */
+    background-color: #f7d8f3; /* Background color for the cards */
+    }
+    
+    
+    .card h2 {
+    margin-bottom: 10px;
+    }
+    
+    .card p {
+    font-size: 1.2em;
+    color: #5d0050;
+    }
+    
+    
+    
+    input[type="date"],
+    input[type="number"],
+    input[type="email"],
+    input[type="text"] {
+    background-color: #f1b9de; /* Background color for input fields */
+    border: 1px solid #ccc; /* Border color for input fields */
+    padding: 8px; /* Padding for input fields */
+    border-radius: 5px; /* Border radius for input fields */
+    width: 100%; /* Width of input fields */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    margin-bottom: 10px; /* Margin bottom for spacing between input fields */
+    }
+    
+    button[type="submit"] {
+    background-color: #900574; /* Background color for submit button */
+    color: #fff; /* Text color for submit button */
+    border: none; /* Remove border for submit button */
+    padding: 10px 20px; /* Padding for submit button */
+    border-radius: 5px; /* Border radius for submit button */
+    cursor: pointer; /* Cursor style for submit button */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    height: 60px;
+    width: 100px;
+    }
+    
+    button[type="submit"]:hover {
+    background-color: #6c065d; /* Hover background color for submit button */
+    }
+    
+    .number-input {
+    position: relative;
+    display: inline-flex;
+    align-items: stretch;
+    width: 100%; /* Adjust width as needed */
+    height: 40px;
+    }
+    
+    .number-input input[type=number] {
+    width: 100%;
+    height: 40px;
+    padding: 8px 30px 8px 8px; /* Adjust padding to accommodate buttons */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    }
+    
+    .number-input button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 8px;
+    background-color:  #f1b9de;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: pointer;
+    }
+    
+    .number-input button:hover {
+    background-color: #e0e0e0;
+    }
+    
+    .number-input button:first-child {
+    left: 0;
+    border-radius: 5px 0 0 5px;
+    }
+    
+    .number-input button:last-child {
+    right: 0;
+    border-radius: 0 5px 5px 0;
+    }
+    
+    
+    .notification {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    z-index: 1000;
+    }
+    
+    .notification.success {
+    background-color: #a40e59;
+    }
+    
+    .notification.error {
+    background-color: #dc3545;
+    }
+    
+    .track-container {
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid #900574;
+    border-radius: 10px;
+    background-color: #f7d8f3;
+    
+    }
+    
+    .track-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    }
+    
+    .track-date {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    }
+    
+    .track-bar {
+    display: flex;
+    align-items: center;
+    }
+    
+    .track-period {
+    height: 30px;
+    border-radius: 50px 0px 0px 50px;
+    background-color:#4b0036;
+    }
+    
+    .track-interval {
+    height: 30px;
+    border-radius: 0 50px 50px 0;
+    background-color:#b76e9d;
+    }
+    
+    .track-period-days {
+    background-color:#4b0036;
+    color: white;
+    padding: 0 5px;
+    border-radius: 10px;
+    margin-right: 5px;
+    }
+    .track-interval-days {
+    background-color:#b76e9d ;
+    color: white;
+    padding: 0 5px;
+    border-radius: 10px;
+    margin-right: 5px;
+    }
+    
+    
+    .legend {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f7d8f3;
+    margin-left: 75rem;
+    }
+    
+    .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    }
+    
+    .color-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    margin-right: 10px;
+    }
+    
+    .legend-item span {
+    font-size: 1.2em;
+    color: #5d0050;
+    }
+
+   .message {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            background-color: rgb(247, 216, 243);
+            font-size: 30px;
+            border-radius: 4px;
+            animation: slide 28s linear infinite;
+        }
+    @keyframes slide {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }

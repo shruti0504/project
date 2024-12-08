@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbox</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7d8f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chatbox {
+            border-radius: 10px;
+            width: 400px;
+            height: 600px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatbox-header {
+            background-color: #900574;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-weight: bold;
+        }
+
+        .chatbox-body {
+            padding: 10px;
+            flex: 1;
+            overflow-y: auto;
+            height: 300px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            background-color: #f7d8f3;
+        }
+
+        .chatbox-footer {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #f7d8f3;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        #user-input {
+            width: 80%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #900574;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .options {
+            margin-top: 10px;
+        }
+
+        .options button {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            background-color: #d1a4c8;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            padding: 5px;
+        }
+
+        .user-message {
+            background-color: #f7d8f3;
+            color: #900574;
+            padding: 8px;
+            border-radius: 10px;
+            margin: 5px;
+            align-self: flex-end;
+            max-width: 80%;
+            border: 1px solid #900574;
+        }
+
+        .bot-message-container {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .bot-icon {
+            background-color: #900574;
+            color: #fff;
+            border-radius: 50%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .bot-icon i {
+            font-size: 16px;
+        }
+
+        .bot-message {
+            background-color: #900574;
+            color: #fff;
+            padding: 8px;
+            border-radius: 10px;
+            max-width: 80%;
+            border: 1px solid #900574;
+            text-align: left;
+        }
+
+        .related-queries {
+            margin-top: 10px;
+        }
+
+        .related-queries button {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            background-color: #d1a4c8;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <div class="chatbox-header">
+            <h2>Chatbot</h2>
+        </div>
+        <div class="chatbox-body" id="chatbox-body">
+            <div class="bot-message">Hi there 🌷💗 Whether you're tracking your cycle or looking for answers about menstrual health, I’m here to help. What can I assist you with today?</div>
+            <div class="options">
+                <button onclick="sendOption('Symptoms of PMS')">Symptoms of PMS</button>
+                <button onclick="sendOption('What is the average length of the menstrual cycle?')">Average length of menstrual cycle</button>
+                <button onclick="sendOption('What is PCOS')">What is PCOS</button>
+                <button onclick="sendOption('Can I exercise during my period?')">Can I exercise during my period?</button>
+                <button onclick="sendOption('What causes heavy periods?')">What causes heavy periods?</button>
+
+            </div>
+        </div>
+        <div class="chatbox-footer">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+   <script>
+    function sendMessage() {
+    const input = document.getElementById('user-input').value;
+    if (input.trim() === '') return;
+
+    appendMessage('You: ' + input);
+    sendRequest(input);
+}
+
+function sendOption(option) {
+    appendMessage('You: ' + option);
+    sendRequest(option);
+}
+
+function appendMessage(message) {
+    const chatboxBody = document.getElementById('chatbox-body');
+    chatboxBody.innerHTML += `<div class="user-message">${message}</div>`;
+    chatboxBody.scrollTop = chatboxBody.scrollHeight; // Scroll to the bottom
+}
+
+function sendRequest(message) {
+    fetch('chat.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `message=${encodeURIComponent(message)}`
+    })
+    .then(response => response.json()) // Expecting JSON response
+    .then(data => {
+        appendBotMessage(data.response, data.relatedQueries, data.askFeedback);
+        document.getElementById('user-input').value = '';
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function appendBotMessage(message, relatedQueries, askFeedback) {
+    const chatboxBody = document.getElementById('chatbox-body');
+    let queriesHtml = '';
+    if (relatedQueries && relatedQueries.length > 0) {
+        queriesHtml = `<div class="related-queries">Related Queries: ${relatedQueries.map(query => 
+            `<button onclick="sendOption('${query.query}')">${query.query}</button>`
+        ).join(' ')}</div>`;
+    }
+
+    chatboxBody.innerHTML += `
+        <div class="bot-message-container">
+            <div class="bot-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="bot-message">${message}</div>
+        </div>
+        ${queriesHtml}`;
+
+    if (askFeedback) {
+        chatboxBody.innerHTML += `
+            <div class="bot-message-container">
+                <div class="bot-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="bot-message">Are you satisfied with the answer or do you want to ask more?</div>
+            </div>
+            <div class="options">
+                <button onclick="sendOption('I am satisfied, thank you!')">I am satisfied, thank you!</button>
+                <button onclick="sendOption('I want to ask more')">I want to ask more</button>
+            </div>`;
+    }
+
+    chatboxBody.scrollTop = chatboxBody.scrollHeight; // Scroll to the bottom
+}
+
+   </script>
+</body>
+</html>

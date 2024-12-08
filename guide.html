@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Menstrual Health Guide</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(247, 216, 243);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo img{
+    padding-top: 30px;
+    width: 70px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding: 0 7vw;
+    background-color: rgb(247, 216, 243);
+    justify-content: space-between;
+    position: relative; /* Make the header a containing block */
+}
+
+.nav ul .home-icon {
+    margin-left: auto; /* Push the home icon to the right */
+    
+}
+/*house icon la rightmost ghetle*/
+.house {
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+.house-icon {
+    font-size: 24px;
+    color:brown;/*clr of icon*/
+
+}
+/*navbar section end*/
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .section {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            border: 3px solid #770945;
+            border-radius: 80px;
+        }
+        .section img {
+            width: 100%;
+            max-width: 450px;
+            margin: 20px;
+        }
+        .section-content {
+            flex: 1;
+            font-size: 19px;
+            color: rgb(110, 6, 6);
+            padding: 20px;
+        }
+        .section-content h2 {
+            color:rgb(80, 23, 23);
+            font-size: 2em;
+        }
+        .highlight {
+            background: #F8BBD0;
+            border-left: 10px solid #e91e63;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+           
+        }
+        .highlight img {
+            width: 400px;
+            height: 300px;
+      
+        }
+        
+
+        /* Add a fade-in effect for the whole page */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    animation: fadeIn 2s ease-in;
+}
+
+/* Animation for section images */
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.section img {
+    animation: slideIn 1s ease-out;
+}
+
+/* Animation for section content */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-content {
+    animation: fadeUp 1s ease-out;
+}
+
+/* Animation for highlight section */
+@keyframes highlightIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.highlight {
+    animation: highlightIn 1s ease-in-out;
+}
+
+/* Hover effect for section */
+.section:hover {
+    border-color: #e91e63;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.header {
+    animation: fadeIn 1s ease-in;
+}
+
+.house-icon {
+    transition: color 0.3s ease;
+}
+
+.house-icon:hover {
+    color: brown
+}
+
+        @media(max-width: 768px) {
+            .section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .section img {
+                margin: 0;
+                width: 80%;
+            }
+            .section-content {
+                padding: 10px;
+            }
+            .highlight {
+                flex-direction: column;
+                text-align: center;
+            }
+            .highlight img {
+                margin: 10px 0;
+                width: 80%;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="images/logo.png" alt="This is logo image">
+        </div>
+        <div class="house">
+            <a href="home.html" class="house-icon">
+                <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
+     </div>
+    <div class="container">
+        <div class="section">
+            <img src="images/end.png" alt="Endometriosis">
+            <div class="section-content">
+                <h2>Endometriosis</h2>
+                <p><strong>Symptoms:</strong>Endometriosis is a condition where tissue similar to the lining of the uterus, called endometrium, grows outside the uterus. This misplaced tissue can cause a range of symptoms and problems.Other symptoms include pain during intercourse, pain with bowel movements or urination, and fatigue. Some women may also experience infertility, as endometriosis can affect the reproductive organs and their function.</p>
+                <p><strong>Diagnosis:</strong>Diagnosing endometriosis often involves a combination of medical history review, physical exams, and imaging tests like ultrasound or MRI. The definitive diagnosis usually requires a laparoscopy, a surgical procedure where a tiny camera is inserted into the pelvis to visualize and possibly remove endometrial tissue</p>
+                <p><strong>Treatment Options:</strong>Treatment options aim to relieve symptoms and may include pain medications, hormonal therapies to suppress the growth of endometrial tissue, or surgical interventions to remove or destroy the abnormal tissue. Lifestyle changes like maintaining a healthy diet and managing stress can also help alleviate symptoms. For women trying to conceive, fertility treatments may be considered.</p>
+            </div>
+            
+        </div>
+
+        <div class="section">
+            <img src="images/pc.png" alt="PCOS">
+            <div class="section-content">
+                <h2>Polycystic Ovary Syndrome (PCOS)</h2>
+                <p><strong>Symptoms:</strong>Polycystic Ovary Syndrome (PCOS) is a condition where the ovaries are a bit like a cluttered desk—full of small cysts that can disrupt your hormone balance. This can lead to a mix of symptoms, including irregular periods, difficulty with ovulation, and trouble conceiving.
+                    Women with PCOS might also notice signs like excessive hair growth in places where they’d rather not have it, such as the face or chest, along with acne and oily skin. Weight gain or difficulty losing weight is common, and there can be issues with insulin resistance, increasing the risk of type 2 diabetes.</p>
+                <p><strong>Diagnosis:</strong>Diagnosing PCOS usually involves a combination of checking your medical history, a physical exam, blood tests to measure hormone levels, and an ultrasound to look at your ovaries.</p>
+                <p><strong>Treatment Options:</strong>Treatment aims to tackle symptoms and may include lifestyle changes like a balanced diet and regular exercise to help manage weight and improve insulin sensitivity. Medications might be used to regulate menstrual cycles, reduce androgen levels, and manage symptoms like acne and hair growth. For those struggling with infertility, fertility treatments can help with ovulation.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <img src="images/pms.png" alt="PMS">
+            <div class="section-content">
+                <h2>Premenstrual Syndrome (PMS)</h2>
+                <p><strong>Symptoms:</strong>Premenstrual Syndrome (PMS) is like the monthly surprise package that many women experience before their period starts. It’s a mix of physical and emotional symptoms that can make the days leading up to your period feel challenging it can vary in intensity, it often improves once menstruation begins.</p>
+                <p><strong>Diagnosis:</strong>Diagnosing PMS typically involves tracking your symptoms and their timing relative to your menstrual cycle. This helps distinguish PMS from other conditions with similar symptoms.</p>
+                <p><strong>Treatment Options:</strong>Managing PMS can involve lifestyle changes such as regular exercise, a balanced diet, and stress management techniques. Over-the-counter pain relievers can help with physical symptoms, while lifestyle modifications may improve overall well-being. For more severe cases, doctors might prescribe medications like hormonal treatments or antidepressants to help balance symptoms.</p>
+            </div>
+            
+        </div>
+
+        <div class="section">
+            <img src="images/imp.png" alt="PCOD">
+            <div class="section-content">
+                <h2>Polycystic Ovary Disease (PCOD)</h2>
+                <p><strong>Symptoms:</strong>Symptoms often include acne, excess hair growth in areas like the face or chest, weight gain, and thinning hair on the scalp. Women with PCOD might also experience difficulties with fertility due to irregular ovulation.</p>
+                <p><strong>Diagnosis:</strong>Diagnosing PCOD typically involves reviewing symptoms, a physical examination, and various tests. Blood tests measure hormone levels, while an ultrasound can reveal the presence of cysts in the ovaries</p>
+                <p><strong>Treatment Options:</strong>Treatment for PCOD focuses on managing symptoms and improving quality of life. This often includes lifestyle changes such as a healthy diet and regular exercise to help with weight management and insulin sensitivity. Medications may be prescribed to regulate menstrual cycles, reduce symptoms like acne and excess hair growth, and address insulin resistance. For those seeking to conceive, fertility treatments might be recommended.</p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            
+            <div>
+                <h2>Importance of Seeking Medical Help</h2>
+                <p>If you experience any of the symptoms mentioned above, it's crucial to consult a healthcare provider. Early diagnosis and treatment can significantly improve quality of life and prevent complications. Do not ignore the symptoms or delay seeking medical help.</p>
+            </div>
+            <img src="images/dr.png" alt="Seek Medical Help">
+        </div>
+    </div>
+</body>
+</html>

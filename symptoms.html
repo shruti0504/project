@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <style>
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: brown; /* Color of text and icons */
+}
+
+.logo img {
+    padding-top: 30px;
+    width: 70px;
+}
+
+.header {
+    position: fixed; /* Use fixed to keep the header in place */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgb(247, 216, 243);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 7vw;
+    justify-content: space-between;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: brown;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.house {
+    padding-left: 10px;
+}
+
+.house-icon {
+    font-size: 24px;
+    color: brown;
+}
+
+/* Navbar section end */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(247, 216, 243);
+    margin: 0;
+    padding: 80px 0 0 0; /* Adjusted padding-top to account for the header */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to start, since the height might vary */
+    height: 100vh;
+    padding-bottom: 200px;
+    margin-bottom: 400px;
+}
+
+.container {
+    background-color: rgb(241, 193, 223);
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #900574;
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    margin: auto;
+}
+
+.symptom-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.symptom-grid label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.symptom-grid img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.symptom-grid input[type="checkbox"] {
+    display: none;
+}
+
+.symptom-grid input[type="checkbox"]:checked + img {
+    border-color: #720b33;
+}
+
+button {
+    background-color: #b33a66;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #b33a66;
+}
+
+#advice {
+    margin-top: 20px;
+    color: #5d034b;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.condition h3 {
+    text-align: center;
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    color: rgb(112, 23, 66);
+}
+
+.condition ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.condition li {
+    margin-bottom: 5px;
+}
+
+.content {
+    text-align: center;
+}
+
+.page-heading {
+    font-size: 2.5rem;
+    color: #900574;
+    margin-bottom: 10px;
+}
+
+.page-description {
+    font-size: 1.2rem;
+    color: #720b33;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    padding: 0 20px;
+}
+
+.info-link {
+    color: #900574;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.info-link:hover {
+    color: #720b33;
+    text-decoration: none;
+}
+
+    </style>
+    <div class="header">
+        <div class="logo">
+            <img src="images/logo.png" alt="This is logo image">
+        </div>
+        <div class="house">
+            <a href="home.html" class="house-icon">
+                <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
+    </div>
+    <div class="content">
+        <h1 class="page-heading">Log Your Symptoms</h1>
+        <p class="page-description">
+            Select the symptoms that best describe your current condition, and we'll provide you with personalized advice</br>
+            <a href="info.html" class="info-link">click here for more information.</a>
+        </p>
+        <div class="container">
+            <form id="symptom-form" action="symptoms.php" method="POST">
+                <h1>How’s the Flow, Let’s Know!</h1>
+                <div class="symptom-grid">
+                    <label>
+                        <input type="checkbox" name="flow[]" value="1">
+                        <img src="images/1.png" alt="light">
+                        <span>Light</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="flow[]" value="2">
+                        <img src="images/2.png" alt="normal">
+                        <span>Medium</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="flow[]" value="3">
+                        <img src="images/3.png" alt="heavy">
+                        <span>Heavy</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="flow[]" value="4">
+                        <img src="images/4.png" alt="run">
+                        <span>Run</span>
+                    </label>
+                </div>
+
+                <h1>Select the Flow Color That Matches</h1>
+                <div class="symptom-grid">
+                    <label>
+                        <input type="checkbox" name="color[]" value="#F08080">
+                        <img src="images/b1.png" alt="Soft Red">
+                        <span>Soft Red</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="color[]" value="#DC143C">
+                        <img src="images/b2.png" alt="Red">
+                        <span>Red</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="color[]" value="#B22222">
+                        <img src="images/b3.png" alt="Dark Red">
+                        <span>Dark Red</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="color[]" value="#800000">
+                        <img src="images/b4.png" alt="Maroon">
+                        <span>Maroon</span>
+                    </label>
+                </div>
+
+                <h1>Pick Your Cravings for Comfort</h1>
+                <div class="symptom-grid">
+                    <label>
+                        <input type="checkbox" name="cravings[]" value="choco">
+                        <img src="images/Fibres.png" alt="choco">
+                        <span>Chocolate</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="cravings[]" value="salty">
+                        <img src="images/carbs.png" alt="salty">
+                        <span>Salty</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="cravings[]" value="carbs">
+                        <img src="images/proteins.png" alt="carbs">
+                        <span>Carbohydrates</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="cravings[]" value="sweet">
+                        <img src="images/Fats.png" alt="sweet">
+                        <span>Sweet</span>
+                    </label>
+                </div>
+                <button type="submit">Check Symptoms</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
